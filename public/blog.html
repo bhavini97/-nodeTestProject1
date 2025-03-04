@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Creator</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .form-container { max-width: 500px; margin-bottom: 20px; }
+        textarea { width: 100%; height: 100px; }
+        .btn { background: blue; color: white; padding: 10px; border: none; cursor: pointer; }
+        .blog-post { border: 1px solid #ccc; padding: 10px; margin: 10px 0; }
+    </style>
+</head>
+<body>
+
+    <h2>Create a Blog</h2>
+    <div class="form-container">
+        <label for="title">Blog Title:</label>
+        <input type="text" id="title" required><br><br>
+
+        <label for="author">Blog Author:</label>
+        <input type="text" id="author" required><br><br>
+
+        <label for="content">Blog Content:</label>
+        <textarea id="content" required></textarea><br><br>
+
+        <button class="btn" onclick="addBlog()">Submit</button>
+    </div>
+
+    <h2>All Blogs</h2>
+    <div id="blogContainer"></div>
+
+    <script src="./blog.js">
+        
+    </script>
+
+</body>
+</html>
