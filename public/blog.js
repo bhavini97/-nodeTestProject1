@@ -111,4 +111,31 @@ async function deleteComment(commentId) {
         console.error("Error deleting comment:", error);
     }
 }
+async function addComment(blogId) {
+    const commentContent = document.getElementById(`comment-${blogId}`).value.trim();
+
+    if (!commentContent) {
+        alert("Please enter a comment.");
+        return;
+    }
+
+    console.log("Sending Comment:", { blog_id: blogId, content: commentContent }); // Debugging
+
+    try {
+        const res = await fetch("http://localhost:3000/comments", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ blog_id: blogId, content: commentContent })
+        });
+
+        if (!res.ok) {
+            throw new Error(`HTTP error! Status: ${res.status}`);
+        }
+
+        console.log(" Comment added successfully.");
+        fetchBlogs();  // Refresh comments
+    } catch (error) {
+        console.error(" Error adding comment:", error);
+    }
+}
 
